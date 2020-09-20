@@ -5,6 +5,7 @@ group { name: "e/theme/about";
    images.image: "screen_circular_shadow.png" COMP;
    images.image: "button_normal.png" COMP;
    images.image: "button_clicked.png" COMP;
+   images.image: "mnt_about_background.jpg" COMP;
    min: 220 220;
    max: 220 220;
    parts {
@@ -16,10 +17,10 @@ group { name: "e/theme/about";
       }
       part { name: "bg";
          description { state: "default" 0.0;
-            image.normal: "bg_radgrad.png";
+            image.normal: "mnt_about_background.jpg";
             image.scale_hint: STATIC;
             fill.smooth: 0;
-            ASPECT_FILL((1024/653))
+            ASPECT_FILL((1580/1148))
          }
       }
       part { name: "name"; type: TEXT; mouse_events: 0;
@@ -30,7 +31,7 @@ group { name: "e/theme/about";
             color: FN_COL_HIGHLIGHT;
             rel1.relative: 0.5 0.5;
             rel2.relative: 0.5 0.5;
-            text { font: FNBD; size: 64;
+            text { font: FNBD; size: 32;
                text: "Dark";
                min: 1 1;
                ellipsis: -1;
@@ -44,13 +45,32 @@ group { name: "e/theme/about";
          description { state: "default" 0.0;
             fixed: 1 1;
             color: FN_COL_HIGHLIGHT;
-            rel1.relative: 0.5 0.9;
+            rel1.relative: 0.5 1.1;
             rel1.to: "name";
-            rel2.relative: 0.5 0.9;
+            rel2.relative: 0.5 1.1;
             rel2.to: "name";
             align: 0.5 1.0;
             text { font: FN; size: 10;
-               text: "The default theme for Enlightenment";
+               text: "Classic Mac OS / Amiga OS inspired theme with the mnt Reform in mind.";
+               min: 1 1;
+               ellipsis: -1;
+               align: 0.5 1.0;
+            }
+         }
+      }
+      part { name: "name3"; type: TEXT; mouse_events: 0;
+         effect: GLOW;
+         scale: 1;
+         description { state: "default" 0.0;
+            fixed: 1 1;
+            color: FN_COL_HIGHLIGHT;
+            rel1.relative: 0.5 1.8;
+            rel1.to: "name2";
+            rel2.relative: 0.5 1.8;
+            rel2.to: "name2";
+            align: 0.5 1.0;
+            text { font: FN; size: 10;
+               text: "Based on darkmod 20171106";
                min: 1 1;
                ellipsis: -1;
                align: 0.5 1.0;
