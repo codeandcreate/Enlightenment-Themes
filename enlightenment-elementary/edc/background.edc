@@ -1,7 +1,6 @@
 group { name: "e/desktop/background";
    images.image: "bg_radgrad.png" COMP;
    images.image: "dot_pattern.png" COMP;
-   image: "mntmn-logo-2015.png" COMP;
    parts {
       part { name: "bg";
          description { state: "default" 0.0;
@@ -15,17 +14,6 @@ group { name: "e/desktop/background";
          description { state: "default" 0.0;
             image.normal: "dot_pattern.png";
             TILED_PATTERN(256, 256)
-         }
-      }
-      part { name: "mnt";
-         mouse_events: 0;
-         description { state: "default" 0.0;
-            image.normal: "mntmn-logo-2015.png";
-            image.scale_hint: STATIC;
-			min: 326 177.5;
-      	  	max: 326 177.5;
-			rel1.relative: 0.75 0.75; 
-			rel1.offset: 0 0;
          }
       }
    }
