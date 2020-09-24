@@ -279,8 +279,8 @@ edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -fd fnt -
 
 report_on_error mv -v img-bak img
 report_on_error mv -v img-manual-bak/* img-manual-convd
-report_on_error rm -r fdo
-report_on_error mv -v fdo-bak fdo
+#report_on_error rm -r fdo
+#report_on_error mv -v fdo-bak fdo
 if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
   if [[ -f ../build/e/$THEME_NAME.edj ]]; then
     report_on_error cp ../build/e/$THEME_NAME.edj ~/.elementary/themes
