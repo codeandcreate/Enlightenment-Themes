@@ -1,0 +1,34 @@
+[Icon Theme]
+Name=Enlightenment-X
+Inherits=Mojave-CT-Classic,Faenza,Mint-X,RAVE-X,hicolor
+Comment=The Enlightenment-X Icon theme. Orig. based on Mojave-CT-Classic, Faenza, Rave-X and Mint-X Icon Themes.
+Directories=apps/1024,categories/1024,devices/1024,mimetypes/1024,places/1024
+Example=folder-home
+
+[apps/1024]
+Size=1024
+Context=Applications
+Type=Scalable
+MinSize=1
+MaxSize=1024
+
+[devices/1024]
+Size=1024
+Context=Devices
+Type=Scalable
+MinSize=1
+MaxSize=1024
+
+[mimetypes/1024]
+Size=1024
+Context=MimeTypes
+Type=Scalable
+MinSize=1
+MaxSize=1024
+
+[places/1024]
+Size=1024
+Context=Places
+Type=Scalable
+MinSize=1
+MaxSize=1024
