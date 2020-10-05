@@ -5,7 +5,7 @@ Based on darkmod (20171106) for Enlightenment e24.
 The icon theme works best with [Mojave-CT](https://github.com/zayronxio/Mojave-CT) installed.
 
 
-![Screenshot](Reform-image-sources/shot-2020-10-05_16-20-19.png)
+![Screenshot](Reform-image-sources/shot-2020-10-05_16-20-19.jpg)
 
 
 ## Changes
