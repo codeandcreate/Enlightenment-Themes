@@ -5,14 +5,15 @@ Based on darkmod (20171106) for Enlightenment e24.
 The icon theme works best with [Mojave-CT](https://github.com/zayronxio/Mojave-CT) installed.
 
 
-![Screenshot](Reform-image-sources/shot-2020-10-05_16-20-19)
+![Screenshot](Reform-image-sources/shot-2020-10-05_16-20-19.png)
 
 
 ## Changes
 
 ### 2020-10-05
-- Icons: Optimized efm icons, added mime icons to main icon set
+- Optimized efm icons, added mime icons to main icon set
 - Integrated RePlatinum/NeXTSpirit Icons in fdo icon theme
+- Removed SVG icons from fdo
 - Removed icon coloring from build-Reform.sh
 - Added background texture on shelf
 - Debian Logo on start-widget
