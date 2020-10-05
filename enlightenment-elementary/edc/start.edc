@@ -1,14 +1,8 @@
 group { name: "e/modules/start/main";
    alias: "e/gadget/start/main";
-   images.image: "big_arrow_down.png" COMP;
-   images.image: "big_arrow_down_shadow.png" COMP;
-   images.image: "big_arrow_up.png" COMP;
-   images.image: "big_arrow_up_shadow.png" COMP;
-   images.image: "big_arrow_left.png" COMP;
-   images.image: "big_arrow_left_shadow.png" COMP;
-   images.image: "big_arrow_right.png" COMP;
-   images.image: "big_arrow_right_shadow.png" COMP;
-   max: 128 128;
+   images.image: "debian-menu-icon.png" COMP;
+   images.image: "debian-menu-icon-active.png" COMP;
+   max: 512 512;
    parts {
       part { name: "arrow_base"; type: RECT;
          description { state: "default" 0.0;
@@ -25,54 +19,16 @@ group { name: "e/modules/start/main";
       part { name: "shadow";
          clip_to: "arrow_base";
          description { state: "default" 0.0;
-            image.normal: "big_arrow_up_shadow.png";
+            image.normal: "debian-menu-icon-active.png";
             rel1.to: "arrow_base";
             rel2.to: "arrow_base";
-            aspect: (17/14) (17/14);
-            max: 17 14;
-         }
-         description { state: "down" 0.0;
-            inherit: "default" 0.0;
-            image.normal: "big_arrow_down_shadow.png";
-            aspect: (17/14) (17/14);
-            max: 17 14;
-         }
-         description { state: "left" 0.0;
-            inherit: "default" 0.0;
-            image.normal: "big_arrow_left_shadow.png";
-            aspect: (14/17) (14/17);
-            max: 14 17;
-         }
-         description { state: "right" 0.0;
-            inherit: "default" 0.0;
-            image.normal: "big_arrow_right_shadow.png";
-            aspect: (14/17) (14/17);
-            max: 14 17;
+            max: 512 512;
          }
       }
       part { name: "arrow"; clip: "arrow_base";
          description { state: "default" 0.0;
-            image.normal: "big_arrow_up.png";
-            aspect: (17/14) (17/14);
-            max: 17 14;
-         }
-         description { state: "down" 0.0;
-            inherit: "default" 0.0;
-            image.normal: "big_arrow_down.png";
-            aspect: (17/14) (17/14);
-            max: 17 14;
-         }
-         description { state: "left" 0.0;
-            inherit: "default" 0.0;
-            image.normal: "big_arrow_left.png";
-            aspect: (14/17) (14/17);
-            max: 14 17;
-         }
-         description { state: "right" 0.0;
-            inherit: "default" 0.0;
-            image.normal: "big_arrow_right.png";
-            aspect: (14/17) (14/17);
-            max: 14 17;
+            image.normal: "debian-menu-icon.png";
+            max: 512 512;
          }
       }
       part { name: "events"; type: RECT;
@@ -101,18 +57,18 @@ group { name: "e/modules/start/main";
          target: "arrow"; \
          target: "shadow"; \
       }
-      ORIENT_SATE("top", "down")
-      ORIENT_SATE("top_left", "down")
-      ORIENT_SATE("top_right", "down")
+      ORIENT_SATE("top", "default")
+      ORIENT_SATE("top_left", "default")
+      ORIENT_SATE("top_right", "default")
       ORIENT_SATE("bottom", "default")
       ORIENT_SATE("bottom_left", "default")
       ORIENT_SATE("bottom_right", "default")
-      ORIENT_SATE("left", "right")
-      ORIENT_SATE("left_top", "right")
-      ORIENT_SATE("left_bottom", "right")
-      ORIENT_SATE("right", "left")
-      ORIENT_SATE("right_top", "left")
-      ORIENT_SATE("right_bottom", "left")
+      ORIENT_SATE("left", "default")
+      ORIENT_SATE("left_top", "default")
+      ORIENT_SATE("left_bottom", "default")
+      ORIENT_SATE("right", "default")
+      ORIENT_SATE("right_top", "default")
+      ORIENT_SATE("right_bottom", "default")
 #undef ORIENT_SATE
    }
 }
