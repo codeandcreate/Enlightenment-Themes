@@ -3,6 +3,7 @@
 *~
 *Makefile.am
 *-icons/
+**/.DS_Store
 enlightenment-elementary/*-dm*
 enlightenment-elementary/img-bgnd/
 enlightenment-elementary/img-color-convd/

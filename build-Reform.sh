@@ -48,10 +48,10 @@ if [[ $DKMD_TERMPKG != 1 ]]; then
 inform "Creating a backup of all images"
 mkdir $ELM_ENLIGHT_THEME_PATH/img-bak
 mkdir $ELM_ENLIGHT_THEME_PATH/img-manual-bak
-#mkdir $ELM_ENLIGHT_THEME_PATH/fdo-bak
+mkdir $ELM_ENLIGHT_THEME_PATH/fdo-bak
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img/* $ELM_ENLIGHT_THEME_PATH/img-bak
 report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/img-manual-convd/* $ELM_ENLIGHT_THEME_PATH/img-manual-bak
-#report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/fdo/* $ELM_ENLIGHT_THEME_PATH/fdo-bak
+report_on_error cp -vr $ELM_ENLIGHT_THEME_PATH/fdo/* $ELM_ENLIGHT_THEME_PATH/fdo-bak
 success "    Finished Cleaning Repository"
 
 
@@ -137,19 +137,12 @@ for F in `find -iname "*.png"`; do
 done
 popd
 
-
-# create icon theme
-inform "Creating Reform icon links"
-
 if [ -d "build/icons/$THEME_NAME-icons" ]; then rm -Rf build/icons/$THEME_NAME-icons; fi
-cp -r $ELM_ENLIGHT_THEME_PATH/icons-reform build/icons/$THEME_NAME-icons
+cp -r $ELM_ENLIGHT_THEME_PATH/fdo build/icons/$THEME_NAME-icons
 sed -i "s/Enlightenment-X/$THEME_NAME-e-X/g" "build/icons/$THEME_NAME-icons/index.theme"
 
-bash  "build/icons/$THEME_NAME-icons/build.sh"
-rm  "build/icons/$THEME_NAME-icons/build.sh"
 
-success "    Finished Reform icon links"
-
+success "    Finished Converting Images"
 
 inform "Rewriting .edc"
 pushd $ELM_ENLIGHT_THEME_PATH
@@ -279,8 +272,8 @@ edje_cc -v -id $MANUAL_IMAGE_DIR -id img-color-convd -id img-no-change -fd fnt -
 
 report_on_error mv -v img-bak img
 report_on_error mv -v img-manual-bak/* img-manual-convd
-#report_on_error rm -r fdo
-#report_on_error mv -v fdo-bak fdo
+report_on_error rm -r fdo
+report_on_error mv -v fdo-bak fdo
 if [[ $DKMD_EPKG != 1 && $DKMD_TERMPKG != 1 ]]; then
   if [[ -f ../build/e/$THEME_NAME.edj ]]; then
     report_on_error cp ../build/e/$THEME_NAME.edj ~/.elementary/themes
@@ -339,21 +332,21 @@ if [ $DKMD_EPKG != 1 ]; then
     popd
 
   if [ $DKMD_TERMPKG == 1 ]; then
-	HIGH_RAW=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:-)
-	#HIGH_HTML=$HIGH_RAW | sed -n 's/.*\(*#[0-9][0-9][0-9][0-9][0-9][0-9]*\).*/\1/p'
-	#remove most of the variable content
-	TMP_MID=$(echo "$HIGH_RAW"| cut -d "#" -f2)
-	#remove the remaining fixed content
-	TMP_EXTRACTED=${TMP_MID#${TMP_MID:0:46}}
-	#form the html number
-	HIGH_HTML="#${TMP_EXTRACTED:0:6}"
+    HIGH_RAW=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:-)
+    #HIGH_HTML=$HIGH_RAW | sed -n 's/.*\(*#[0-9][0-9][0-9][0-9][0-9][0-9]*\).*/\1/p'
+    #remove most of the variable content
+    TMP_MID=$(echo "$HIGH_RAW"| cut -d "#" -f2)
+    #remove the remaining fixed content
+    TMP_EXTRACTED=${TMP_MID#${TMP_MID:0:46}}
+    #form the html number
+    HIGH_HTML="#${TMP_EXTRACTED:0:6}"
 
-	HIGH_HTML=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/) {print substr($0, RSTART, RLENGTH)}')
-	#form the rgb number
-	# Need the first bracket to match the right string so remove it after
-	HIGH_RGB=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | perl -e 'while(<STDIN>){if(/srgba\((\d+),(\d+),(\d+)/){print"$1,$2,$3\n"}}')
-	# Substitute , for " "
-	HIGH_RGB=$(echo "$HIGH_RGB" | tr "," " ")
+    HIGH_HTML=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | awk 'match($0, /#[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]/) {print substr($0, RSTART, RLENGTH)}')
+    #form the rgb number
+    # Need the first bracket to match the right string so remove it after
+    HIGH_RGB=$(convert $TERMINOLOGY_THEME_PATH/img-color-convd/bg_glow_in.png -crop "1x1+0+0" txt:- | perl -e 'while(<STDIN>){if(/srgba\((\d+),(\d+),(\d+)/){print"$1,$2,$3\n"}}')
+    # Substitute , for " "
+    HIGH_RGB=$(echo "$HIGH_RGB" | tr "," " ")
    fi
 
    # Convert theme svg Images
@@ -433,7 +426,7 @@ if [ $DKMD_EPKG != 1 ]; then
     report_on_error mv -v img-bak images
 
     if [ $DKMD_TERMPKG != 1 ]; then
-	    report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
+        report_on_error cp ../build/term/$THEME_NAME.edj ~/.config/terminology/themes
     fi
 popd
 fi

@@ -1,19 +1,47 @@
-group { name: "e/desktop/background";
-   images.image: "E-Rhapsody-Wallpaper.png" COMP;
-   images.image: "dot_pattern.png" COMP;
+group {
+   name: "e/desktop/background";
+   images {
+      image: "e_colored.png" COMP;
+      image: "screen.png" COMP;
+      image: "dot_pattern.png" RAW;
+   }
    parts {
-      part { name: "bg";
-         description { state: "default" 0.0;
-            image.normal: "E-Rhapsody-Wallpaper.png";
+      part { 
+         name: "bg";
+         type: IMAGE;
+         description { 
+            state: "default" 0.0;
+            image.normal: "e_colored.png";
             image.scale_hint: STATIC;
             fill.smooth: 0;
-            ASPECT_FILL((2880/2160))
+            aspect: (2880/2160) (2880/2160); 
+            aspect_preference: NONE;
          }
       }
-      part { name: "pat";
-         description { state: "default" 0.0;
+      part { 
+         name: "screen";
+         type: IMAGE;
+         description { 
+            state: "default" 0.0;
+            image.normal: "screen.png";
+            image.scale_hint: STATIC;
+            fill.smooth: 0;
+            aspect: (2880/2160) (2880/2160); 
+            aspect_preference: NONE;
+         }
+      }
+      part { 
+         name: "pat";
+         type: IMAGE;
+         description { 
+            state: "default" 0.0;
             image.normal: "dot_pattern.png";
-            TILED_PATTERN(256, 256)
+            fill {
+               size { 
+                  relative: 0.0 0.0; 
+                  offset: 256 256; 
+               }
+            }
          }
       }
    }

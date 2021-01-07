@@ -10,6 +10,10 @@ The icon theme works best with [Mojave-CT](https://github.com/zayronxio/Mojave-C
 
 ## Changes
 
+### 2021-01-07
+- Updates in build script (needs cleanup ...)
+- Updated default wallpaper 
+
 ### 2020-10-05
 - Optimized efm icons, added mime icons to main icon set
 - Integrated RePlatinum/NeXTSpirit Icons in fdo icon theme
